@@ -3,4 +3,5 @@
     <string name="hint_title_note">Title</string>
     <string name="hint_content_note">Note</string>
     <string name="title_alarm">Alarm</string>
+    <string name="menu_create_note">Create note</string>
 </resources>

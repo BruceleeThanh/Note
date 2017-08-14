@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/margin_small">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_shortcut_note">
+
+        <TextView
+            android:id="@+id/tvShortcutNoteTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/ivIconAlarm"
+            android:paddingLeft="@dimen/margin_small"
+            android:text="Title"
+            android:textColor="@color/primary_text"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/ivIconAlarm"
+            android:layout_width="@dimen/alarm_shortcut_note"
+            android:layout_height="@dimen/alarm_shortcut_note"
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="@dimen/margin_small"
+            android:src="@drawable/ic_alarm_grey_500_24dp"/>
+
+        <View
+            android:id="@+id/vLine1"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/tvShortcutNoteTitle"
+            android:layout_marginTop="@dimen/margin_small"
+            android:background="@color/primary_text" />
+
+        <TextView
+            android:id="@+id/tvShortcutNoteContent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/vLine1"
+            android:layout_marginTop="@dimen/margin_small"
+            android:text="Content"
+            android:layout_above="@id/tvCreatedAt"/>
+
+        <TextView
+            android:id="@+id/tvCreatedAt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="today"
+            android:gravity="end"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="@dimen/margin_small"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

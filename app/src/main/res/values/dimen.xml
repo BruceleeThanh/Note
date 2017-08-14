@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="margin_medium">10dp</dimen>
+    <dimen name="margin_big">20dp</dimen>
+    <dimen name="margin_small">5dp</dimen>
+
+    <dimen name="note_image">100dp</dimen>
+    <dimen name="date_alarm">120dp</dimen>
+    <dimen name="time_alarm">100dp</dimen>
+    <dimen name="alarm_shortcut_note">15dp</dimen>
+    <dimen name="height_shortcut_note">150dp</dimen>
+    <dimen name="height_note_action">40dp</dimen>
+</resources>

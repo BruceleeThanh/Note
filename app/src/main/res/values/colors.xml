@@ -13,4 +13,8 @@
     <color name="icons">#FFFFFF</color>
     <color name="divider">#BDBDBD</color>
     <color name="white">#FFFFFF</color>
+
+    <color name="orange">#f79d49</color>
+    <color name="green">#99ffaf</color>
+    <color name="blue">#4ca5ff</color>
 </resources>

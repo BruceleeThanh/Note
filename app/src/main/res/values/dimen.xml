@@ -10,4 +10,5 @@
     <dimen name="alarm_shortcut_note">15dp</dimen>
     <dimen name="height_shortcut_note">150dp</dimen>
     <dimen name="height_note_action">40dp</dimen>
+    <dimen name="item_color">40dp</dimen>
 </resources>

@@ -1,4 +1,4 @@
-package com.rikkeisoft.thanhnt.note.ui.editnotes;
+package com.rikkeisoft.thanhnt.note.ui.editnote;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

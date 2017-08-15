@@ -1,6 +1,7 @@
 package com.rikkeisoft.thanhnt.note.data;
 
 import java.util.Date;
+import java.util.UUID;
 
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
@@ -38,6 +39,7 @@ public class Note extends RealmObject {
     }
 
     public Note(String title, String content, NoteColor nodeColor, String urlImage, Date alarm, Date createdAt) {
+        this.id = UUID.randomUUID().toString();
         this.title = title;
         this.content = content;
         setNodeColor(nodeColor);

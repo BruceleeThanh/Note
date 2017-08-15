@@ -1,4 +1,4 @@
-package com.rikkeisoft.thanhnt.note.ui.createnotes;
+package com.rikkeisoft.thanhnt.note.ui.createnote;
 
 import android.app.Dialog;
 import android.support.v4.content.ContextCompat;
@@ -17,7 +17,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.rikkeisoft.thanhnt.note.R;
-import com.rikkeisoft.thanhnt.note.data.NoteColor;
 
 public class CreateNoteActivity extends AppCompatActivity implements CreateNoteContract.View, View.OnClickListener {
 
@@ -149,6 +148,16 @@ public class CreateNoteActivity extends AppCompatActivity implements CreateNoteC
     @Override
     public void changeColorBlue() {
         changeNoteColor(R.color.blue);
+    }
+
+    @Override
+    public void showCreateSuccess() {
+        Toast.makeText(this, R.string.create_success, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void showNoteList() {
+        finish();
     }
 
     @Override

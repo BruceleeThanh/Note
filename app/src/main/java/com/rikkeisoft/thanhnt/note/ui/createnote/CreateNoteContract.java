@@ -1,6 +1,5 @@
-package com.rikkeisoft.thanhnt.note.ui.createnotes;
+package com.rikkeisoft.thanhnt.note.ui.createnote;
 
-import com.rikkeisoft.thanhnt.note.data.Note;
 import com.rikkeisoft.thanhnt.note.ui.BasePresenter;
 import com.rikkeisoft.thanhnt.note.ui.BaseView;
 import com.rikkeisoft.thanhnt.note.data.NoteColor;
@@ -22,6 +21,8 @@ public interface CreateNoteContract {
         void changeColorOrange();
         void changeColorGreen();
         void changeColorBlue();
+        void showCreateSuccess();
+        void showNoteList();
     }
 
     interface Presenter extends BasePresenter {

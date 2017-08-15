@@ -10,15 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:name=".utils.MyApplication">
-        <activity android:name=".ui.notes.NoteActivity">
+        <activity android:name=".ui.note.NoteActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.createnotes.CreateNoteActivity" />
-        <activity android:name=".ui.editnotes.EditNoteActivity"></activity>
+        <activity android:name=".ui.createnote.CreateNoteActivity" />
+        <activity android:name=".ui.editnote.EditNoteActivity"></activity>
     </application>
 
 </manifest>

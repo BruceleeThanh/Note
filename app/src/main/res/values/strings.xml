@@ -9,4 +9,7 @@
     <string name="menu_insert_picture">Insert picture</string>
     <string name="empty_note_error">Note cannot be empty</string>
     <string name="title_dialog_choose_color">Choose color</string>
+    <string name="create_success">Note has been created</string>
+    <string name="textview_null">Không có</string>
+    <string name="empty_list_note_error">List note is empty</string>
 </resources>

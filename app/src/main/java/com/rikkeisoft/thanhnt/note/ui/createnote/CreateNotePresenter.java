@@ -1,4 +1,4 @@
-package com.rikkeisoft.thanhnt.note.ui.createnotes;
+package com.rikkeisoft.thanhnt.note.ui.createnote;
 
 import com.rikkeisoft.thanhnt.note.data.Note;
 import com.rikkeisoft.thanhnt.note.data.NoteColor;
@@ -47,6 +47,8 @@ public class CreateNotePresenter implements CreateNoteContract.Presenter {
         } else {
             Note note = new Note(title, content, noteColor);
             noteRepository.createOfUpdate(note);
+            view.showCreateSuccess();
+            view.showNoteList();
         }
     }
 

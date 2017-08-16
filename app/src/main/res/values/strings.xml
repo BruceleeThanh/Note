@@ -12,4 +12,5 @@
     <string name="create_success">Note has been created</string>
     <string name="textview_null">Không có</string>
     <string name="empty_list_note_error">List note is empty</string>
+    <string name="cancel_dialog_button">Cancel</string>
 </resources>

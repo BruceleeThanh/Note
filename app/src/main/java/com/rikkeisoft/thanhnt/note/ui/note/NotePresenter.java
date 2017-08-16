@@ -19,6 +19,7 @@ public class NotePresenter implements NoteContract.Presenter {
         noteRepository = new NoteRepository(Note.class);
     }
 
+    @Override
     public void start() {
         loadNotes();
     }

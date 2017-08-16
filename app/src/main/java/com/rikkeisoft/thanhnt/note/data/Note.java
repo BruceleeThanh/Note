@@ -30,8 +30,8 @@ public class Note extends RealmObject {
     public Note() {
     }
 
-    public Note(String title, String content, NoteColor nodeColor) {
-        this(title, content, nodeColor, null, null, new Date());
+    public Note(String title, String content, NoteColor nodeColor, Date createdAt) {
+        this(title, content, nodeColor, null, null, createdAt);
     }
 
     public Note(String title, String content, NoteColor nodeColor, String urlImage) {
@@ -86,5 +86,13 @@ public class Note extends RealmObject {
 
     public void setUrlImage(String urlImage) {
         this.urlImage = urlImage;
+    }
+
+    public Date getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
     }
 }

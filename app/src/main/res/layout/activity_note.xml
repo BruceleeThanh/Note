@@ -9,7 +9,8 @@
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rvListNote"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:padding="@dimen/margin_small"/>
 
     <TextView
         android:id="@+id/tvEmptyListNote"
@@ -17,6 +18,7 @@
         android:layout_height="wrap_content"
         android:text="@string/empty_list_note_error"
         android:layout_centerInParent="true"
+        android:textColor="@color/primary_text"
         android:visibility="gone"/>
 
 </RelativeLayout>

@@ -87,6 +87,12 @@ public class StringUtil {
 
     public static final String DATE_FORMAT_27 = "yyyy-MM-dd'T'HH:mm:ss";
 
+    public static final String DATE_FORMAT_28 = "dd/MM/yyyy HH:mm";
+
+    public static final String DATE_FORMAT_29 = "dd/MM HH:mm";
+
+    public static final String DATE_FORMAT_30 = "dd/MM/yyyy";
+
     public static final String HTML_TAG_PATTERN = "<(\"[^\"]*\"|'[^']*'|[^'\">])*>";
 
     public static final String TIMESTAMP_DATE_FORMAT = "yyyy-MM-dd HH:mm:ss";
@@ -387,6 +393,14 @@ public class StringUtil {
      */
     public static String getNameOfMonth(Calendar calendar) {
         return new SimpleDateFormat("MMM").format(calendar.getTime());
+    }
+
+    /**
+     * @param calendar
+     * @return
+     */
+    public static String getDayOfWeek(Calendar calendar) {
+        return new SimpleDateFormat("EEEE").format(calendar.getTime());
     }
 
     /**

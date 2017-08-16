@@ -19,6 +19,8 @@
         </activity>
         <activity android:name=".ui.createnote.CreateNoteActivity" />
         <activity android:name=".ui.editnote.EditNoteActivity"></activity>
+
+        <receiver android:name=".service.AlarmReceiver"/>
     </application>
 
 </manifest>

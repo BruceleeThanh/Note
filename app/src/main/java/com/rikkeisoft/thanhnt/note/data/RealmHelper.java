@@ -14,15 +14,15 @@ import io.realm.RealmResults;
 
 public class RealmHelper<T extends RealmObject> {
 
-    private Realm realm;
-    private final Class<T> type;
+    protected Realm realm;
+    protected final Class<T> type;
 
     public RealmHelper(Class<T> type){
         this.type = type;
         realm = Realm.getDefaultInstance();
     }
 
-    public T getById(String id){
+    public T getById(int id){
         return realm.where(type).equalTo("id", id).findFirst();
     }
 
@@ -30,14 +30,16 @@ public class RealmHelper<T extends RealmObject> {
         return realm.where(type).findAll();
     }
 
-    public void createOfUpdate(T t){
+    public T createOfUpdate(T t){
+        T result;
         realm.beginTransaction();
-        realm.copyToRealmOrUpdate(t);
+        result = realm.copyToRealmOrUpdate(t);
         realm.commitTransaction();
         Log.i("Realm create or update:", "success");
+        return result;
     }
 
-    public void deleteById(String id){
+    public void deleteById(int id){
         RealmResults<T> results = realm.where(type).equalTo("id", id).findAll();
         realm.beginTransaction();
         results.deleteAllFromRealm();

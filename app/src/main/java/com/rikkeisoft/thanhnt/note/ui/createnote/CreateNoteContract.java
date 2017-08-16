@@ -2,7 +2,7 @@ package com.rikkeisoft.thanhnt.note.ui.createnote;
 
 import com.rikkeisoft.thanhnt.note.ui.BasePresenter;
 import com.rikkeisoft.thanhnt.note.ui.BaseView;
-import com.rikkeisoft.thanhnt.note.data.NoteColor;
+import com.rikkeisoft.thanhnt.note.data.note.NoteColor;
 
 import java.util.Date;
 import java.util.List;
@@ -56,7 +56,7 @@ public interface CreateNoteContract {
 
         void notifyTimeAlarmAdapter();
 
-        void setAlarmNote(int id, Date alarm);
+        void setAlarmNote(int id, Date alarm, String message);
     }
 
     interface Presenter extends BasePresenter {

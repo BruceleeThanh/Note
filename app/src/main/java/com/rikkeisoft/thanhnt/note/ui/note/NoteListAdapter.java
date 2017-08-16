@@ -10,12 +10,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.rikkeisoft.thanhnt.note.R;
-import com.rikkeisoft.thanhnt.note.data.Note;
-import com.rikkeisoft.thanhnt.note.data.NoteColor;
+import com.rikkeisoft.thanhnt.note.data.note.Note;
+import com.rikkeisoft.thanhnt.note.data.note.NoteColor;
 import com.rikkeisoft.thanhnt.note.ui.BaseViewHolder;
 import com.rikkeisoft.thanhnt.note.utils.StringUtil;
 
-import java.sql.NClob;
 import java.util.List;
 
 /**
@@ -76,6 +75,11 @@ public class NoteListAdapter extends RecyclerView.Adapter<BaseViewHolder> {
             Note note = lstNotes.get(position);
             setShortcutNoteColor(note.getNodeColor());
             StringUtil.setText(tvShortcutNoteTitle, note.getTitle());
+            if(note.getAlarm() == null){
+                ivIconAlarm.setVisibility(View.GONE);
+            }else{
+                ivIconAlarm.setVisibility(View.VISIBLE);
+            }
             StringUtil.setText(tvShortcutNoteContent, note.getContent());
             StringUtil.setText(tvCreatedAt, StringUtil.convertDateToString(note.getCreatedAt(), StringUtil.DATE_FORMAT_29));
         }

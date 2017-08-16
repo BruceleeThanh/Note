@@ -13,4 +13,6 @@
     <string name="textview_null">Không có</string>
     <string name="empty_list_note_error">List note is empty</string>
     <string name="cancel_dialog_button">Cancel</string>
+
+    <string name="intent_action_broadcast_receiver">rikkeisoft.note.notify</string>
 </resources>

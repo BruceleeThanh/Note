@@ -1,8 +1,8 @@
 package com.rikkeisoft.thanhnt.note.ui.createnote;
 
-import com.rikkeisoft.thanhnt.note.data.Note;
-import com.rikkeisoft.thanhnt.note.data.NoteColor;
-import com.rikkeisoft.thanhnt.note.data.NoteRepository;
+import com.rikkeisoft.thanhnt.note.data.note.Note;
+import com.rikkeisoft.thanhnt.note.data.note.NoteColor;
+import com.rikkeisoft.thanhnt.note.data.note.NoteRepository;
 import com.rikkeisoft.thanhnt.note.utils.StringUtil;
 
 import java.util.ArrayList;
@@ -94,15 +94,16 @@ public class CreateNotePresenter implements CreateNoteContract.Presenter {
         if (title.isEmpty()) {
             view.showEmptyNoteError();
         } else {
+            if(alarm != null){
+                alarm = calendar.getTime();
+            }
             Note note = new Note(title, content, noteColor, null, alarm, currentDate);
-            noteRepository.createOfUpdate(note);
+            Note newNote = noteRepository.createOfUpdate(note);
             view.showCreateSuccess();
             view.showNoteList();
 
-            if (alarm != null) {
-
-            } else {
-
+            if (newNote.getAlarm() != null) {
+                view.setAlarmNote(newNote.getId(), newNote.getAlarm(), newNote.getTitle());
             }
         }
     }

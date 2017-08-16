@@ -338,9 +338,12 @@ public class CreateNoteActivity extends AppCompatActivity implements CreateNoteC
     }
 
     @Override
-    public void setAlarmNote(int id, Date alarm) {
+    public void setAlarmNote(int id, Date alarm, String message) {
+        String action = getResources().getString(R.string.intent_action_broadcast_receiver);
         Intent intent = new Intent(CreateNoteActivity.this, AlarmReceiver.class);
-
+        intent.setAction(action);
+        intent.putExtra("id", id);
+        intent.putExtra("message", message);
         pendingIntent = PendingIntent.getBroadcast(CreateNoteActivity.this, id, intent, PendingIntent.FLAG_UPDATE_CURRENT);
         alarmManager.set(AlarmManager.RTC_WAKEUP, alarm.getTime(), pendingIntent);
     }

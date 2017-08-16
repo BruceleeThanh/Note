@@ -1,6 +1,6 @@
 package com.rikkeisoft.thanhnt.note.ui.note;
 
-import com.rikkeisoft.thanhnt.note.data.Note;
+import com.rikkeisoft.thanhnt.note.data.note.Note;
 import com.rikkeisoft.thanhnt.note.ui.BasePresenter;
 import com.rikkeisoft.thanhnt.note.ui.BaseView;
 

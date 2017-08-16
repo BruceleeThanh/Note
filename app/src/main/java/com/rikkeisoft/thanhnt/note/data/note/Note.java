@@ -1,4 +1,4 @@
-package com.rikkeisoft.thanhnt.note.data;
+package com.rikkeisoft.thanhnt.note.data.note;
 
 import java.util.Date;
 import java.util.UUID;
@@ -13,7 +13,7 @@ import io.realm.annotations.Required;
 
 public class Note extends RealmObject {
     @PrimaryKey
-    private String id;
+    private int id;
     @Required
     private String title;
 
@@ -39,7 +39,7 @@ public class Note extends RealmObject {
     }
 
     public Note(String title, String content, NoteColor nodeColor, String urlImage, Date alarm, Date createdAt) {
-        this.id = UUID.randomUUID().toString();
+        this.id = 1;
         this.title = title;
         this.content = content;
         setNodeColor(nodeColor);
@@ -48,11 +48,11 @@ public class Note extends RealmObject {
         this.createdAt = createdAt;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -86,6 +86,14 @@ public class Note extends RealmObject {
 
     public void setUrlImage(String urlImage) {
         this.urlImage = urlImage;
+    }
+
+    public Date getAlarm() {
+        return alarm;
+    }
+
+    public void setAlarm(Date alarm) {
+        this.alarm = alarm;
     }
 
     public Date getCreatedAt() {

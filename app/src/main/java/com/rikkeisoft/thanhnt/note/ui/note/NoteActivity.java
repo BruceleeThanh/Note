@@ -12,7 +12,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.rikkeisoft.thanhnt.note.R;
-import com.rikkeisoft.thanhnt.note.data.Note;
+import com.rikkeisoft.thanhnt.note.data.note.Note;
 import com.rikkeisoft.thanhnt.note.ui.createnote.CreateNoteActivity;
 
 import java.util.List;

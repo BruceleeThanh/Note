@@ -64,7 +64,7 @@ public class CreateEditNoteActivity extends AppCompatActivity implements CreateE
         setContentView(R.layout.activity_create_edit_note);
         loadInstance();
 
-        presenter = new CreateEditNotePresenter(this);
+
         addControls();
         addEvents();
     }
@@ -78,7 +78,7 @@ public class CreateEditNoteActivity extends AppCompatActivity implements CreateE
     private void loadInstance(){
         String action = getIntent().getExtras().getString("action", "");
         if(action.equals(Constant.ACTION_CREATE_NOTE)){
-
+            presenter = new CreateEditNotePresenter(this);
         }else if(action.equals(Constant.ACTION_EDIT_NOTE)){
 
         }

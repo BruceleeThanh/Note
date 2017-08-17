@@ -3,6 +3,7 @@ package com.rikkeisoft.thanhnt.note.ui.createeditnote;
 import com.rikkeisoft.thanhnt.note.data.note.Note;
 import com.rikkeisoft.thanhnt.note.data.note.NoteColor;
 import com.rikkeisoft.thanhnt.note.data.note.NoteRepository;
+import com.rikkeisoft.thanhnt.note.utils.Constant;
 import com.rikkeisoft.thanhnt.note.utils.StringUtil;
 
 import java.util.ArrayList;
@@ -38,7 +39,14 @@ public class CreateEditNotePresenter implements CreateEditNoteContract.Presenter
     private int previousDateAlarmSelected = 0;
     private int previousTimeAlarmSelected = 0;
 
+    private int noteId = 0;
+
     public CreateEditNotePresenter(CreateEditNoteContract.View view) {
+        this.view = view;
+        noteRepository = new NoteRepository(Note.class);
+    }
+
+    public CreateEditNotePresenter(CreateEditNoteContract.View view, int noteId) {
         this.view = view;
         noteRepository = new NoteRepository(Note.class);
     }
@@ -52,9 +60,8 @@ public class CreateEditNotePresenter implements CreateEditNoteContract.Presenter
         setTimeAlarm();
     }
 
-    @Override
-    public void start(int action) {
-
+    private boolean isNewNote(){
+        return noteId == 0;
     }
 
     private void setDateAlarm() {

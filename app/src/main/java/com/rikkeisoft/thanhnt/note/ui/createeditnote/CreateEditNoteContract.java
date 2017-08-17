@@ -60,7 +60,6 @@ public interface CreateEditNoteContract {
     }
 
     interface Presenter extends BasePresenter {
-        void start(int action);
 
         void saveNote(String title, String content);
 

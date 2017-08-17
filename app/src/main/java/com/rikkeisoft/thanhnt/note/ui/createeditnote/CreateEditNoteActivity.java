@@ -1,4 +1,4 @@
-package com.rikkeisoft.thanhnt.note.ui.createnote;
+package com.rikkeisoft.thanhnt.note.ui.createeditnote;
 
 import android.app.AlarmManager;
 import android.app.DatePickerDialog;
@@ -10,6 +10,8 @@ import android.content.Intent;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -28,13 +30,14 @@ import android.widget.Toast;
 
 import com.rikkeisoft.thanhnt.note.R;
 import com.rikkeisoft.thanhnt.note.service.AlarmReceiver;
+import com.rikkeisoft.thanhnt.note.utils.Constant;
 import com.rikkeisoft.thanhnt.note.utils.StringUtil;
 
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-public class CreateNoteActivity extends AppCompatActivity implements CreateNoteContract.View, View.OnClickListener {
+public class CreateEditNoteActivity extends AppCompatActivity implements CreateEditNoteContract.View, View.OnClickListener {
 
     private RelativeLayout rlCreateNote;
     private ImageView ivNoteImage;
@@ -48,19 +51,20 @@ public class CreateNoteActivity extends AppCompatActivity implements CreateNoteC
     private ImageView ivCloseAlarm;
     private Dialog dialog;
 
-    private AlarmManager alarmManager;
-    private PendingIntent pendingIntent;
-
     private ArrayAdapter<String> spiDateAlarmAdapter;
     private ArrayAdapter<String> spiTimeAlarmAdapter;
 
-    private CreateNoteContract.Presenter presenter;
+    private String action;
+
+    private CreateEditNoteContract.Presenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_create_note);
-        presenter = new CreateNotePresenter(this);
+        setContentView(R.layout.activity_create_edit_note);
+        loadInstance();
+
+        presenter = new CreateEditNotePresenter(this);
         addControls();
         addEvents();
     }
@@ -69,6 +73,15 @@ public class CreateNoteActivity extends AppCompatActivity implements CreateNoteC
     protected void onResume() {
         super.onResume();
         presenter.start();
+    }
+
+    private void loadInstance(){
+        String action = getIntent().getExtras().getString("action", "");
+        if(action.equals(Constant.ACTION_CREATE_NOTE)){
+
+        }else if(action.equals(Constant.ACTION_EDIT_NOTE)){
+
+        }
     }
 
     private void addControls() {
@@ -85,13 +98,35 @@ public class CreateNoteActivity extends AppCompatActivity implements CreateNoteC
         spiDateAlarm = (Spinner) findViewById(R.id.spiDateAlarm);
         spiTimeAlarm = (Spinner) findViewById(R.id.spiTimeAlarm);
         ivCloseAlarm = (ImageView) findViewById(R.id.ivCloseAlarm);
-
-        alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
     }
 
     private void addEvents() {
         tvAlarmAction.setOnClickListener(this);
         ivCloseAlarm.setOnClickListener(this);
+        etNoteTitle.addTextChangedListener(setTitleChangedListener());
+    }
+
+    private TextWatcher setTitleChangedListener(){
+        return new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                if(etNoteTitle.getText().toString().equals("")){
+                    getSupportActionBar().setTitle(getResources().getString(R.string.app_name));
+                }else{
+                    getSupportActionBar().setTitle(etNoteTitle.getText().toString());
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        };
     }
 
     @Override
@@ -340,11 +375,14 @@ public class CreateNoteActivity extends AppCompatActivity implements CreateNoteC
     @Override
     public void setAlarmNote(int id, Date alarm, String message) {
         String action = getResources().getString(R.string.intent_action_broadcast_receiver);
-        Intent intent = new Intent(CreateNoteActivity.this, AlarmReceiver.class);
+
+        Intent intent = new Intent(CreateEditNoteActivity.this, AlarmReceiver.class);
         intent.setAction(action);
         intent.putExtra("id", id);
         intent.putExtra("message", message);
-        pendingIntent = PendingIntent.getBroadcast(CreateNoteActivity.this, id, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(CreateEditNoteActivity.this, id, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
         alarmManager.set(AlarmManager.RTC_WAKEUP, alarm.getTime(), pendingIntent);
     }
 }

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rlCreateNote"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/rlCreateNote"
     android:background="@color/white">
 
     <ImageView
@@ -17,17 +17,19 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/ivNoteImage"
         android:layout_margin="@dimen/margin_medium"
-        android:gravity="right"/>
+        android:gravity="right" />
 
     <EditText
         android:id="@+id/etNoteTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin_medium"
         android:layout_below="@+id/tvCreatedAt"
+        android:layout_margin="@dimen/margin_medium"
         android:background="@android:color/transparent"
         android:hint="@string/hint_title_note"
-        android:textStyle="bold"/>
+        android:imeOptions="actionNext"
+        android:maxLines="1"
+        android:textStyle="bold" />
 
     <View
         android:id="@+id/vLine1"
@@ -56,9 +58,9 @@
         android:id="@+id/ivIconAlarm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_alarm_grey_500_24dp"
         android:layout_below="@+id/vLine2"
-        android:layout_margin="@dimen/margin_medium"/>
+        android:layout_margin="@dimen/margin_medium"
+        android:src="@drawable/ic_alarm_grey_500_24dp" />
 
     <TextView
         android:id="@+id/tvAlarmAction"
@@ -66,8 +68,8 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/ivIconAlarm"
         android:layout_toRightOf="@+id/ivIconAlarm"
-        android:text="@string/title_alarm"
-        android:clickable="true"/>
+        android:clickable="true"
+        android:text="@string/title_alarm" />
 
     <LinearLayout
         android:id="@+id/llAlarmAction"
@@ -87,15 +89,60 @@
             android:id="@+id/spiTimeAlarm"
             android:layout_width="@dimen/time_alarm"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/margin_small"/>
+            android:layout_marginLeft="@dimen/margin_small" />
 
         <ImageView
             android:id="@+id/ivCloseAlarm"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_close_grey_500_24dp"
             android:layout_marginLeft="@dimen/margin_small"
-            android:clickable="true"/>
+            android:clickable="true"
+            android:src="@drawable/ic_close_grey_500_24dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llNoteAction"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_note_action"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorPrimary"
+        android:divider="@drawable/partition_white_line_vertical"
+        android:showDividers="middle"
+        android:dividerPadding="@dimen/margin_medium">
+
+        <ImageView
+            android:id="@+id/ivPreviousNote"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="@dimen/margin_small"
+            android:src="@drawable/ic_keyboard_arrow_left_white_24dp"/>
+
+        <ImageView
+            android:id="@+id/ivShareNote"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="@dimen/margin_medium"
+            android:src="@drawable/ic_share_white_24dp"/>
+
+        <ImageView
+            android:id="@+id/ivDeleteNote"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="@dimen/margin_medium"
+            android:src="@drawable/ic_delete_white_24dp"/>
+
+        <ImageView
+            android:id="@+id/ivNextNode"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="@dimen/margin_small"
+            android:src="@drawable/ic_keyboard_arrow_right_white_24dp"/>
 
     </LinearLayout>
 

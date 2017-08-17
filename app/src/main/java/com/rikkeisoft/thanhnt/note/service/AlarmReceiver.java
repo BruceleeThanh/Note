@@ -1,5 +1,6 @@
 package com.rikkeisoft.thanhnt.note.service;
 
+import android.app.AlarmManager;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.TaskStackBuilder;
@@ -29,10 +30,11 @@ public class AlarmReceiver extends BroadcastReceiver {
         this.context = context;
         String receiverAction = intent.getAction();
         String appAction = context.getResources().getString(R.string.intent_action_broadcast_receiver);
-        if(receiverAction.equals(appAction)){
+        if (receiverAction.equals(appAction)) {
             int id = intent.getExtras().getInt("id");
             String message = intent.getExtras().getString("message");
             showNotification(id, message);
+            cancel(id);
         }
     }
 
@@ -56,8 +58,16 @@ public class AlarmReceiver extends BroadcastReceiver {
         Uri sound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
         builder.setSound(sound);
         builder.setVibrate(new long[]{100, 100});
-        builder.setLights(Color.CYAN, 1000, 10000);
+        builder.setLights(Color.GREEN, 1000, 10000);
         NotificationManager manager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
         manager.notify(id, builder.build());
+    }
+
+    public void cancel(int id) {
+        Intent intent = new Intent(context, AlarmReceiver.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(context, id, intent, PendingIntent.FLAG_CANCEL_CURRENT);
+
+        AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+        alarmManager.cancel(pendingIntent);
     }
 }

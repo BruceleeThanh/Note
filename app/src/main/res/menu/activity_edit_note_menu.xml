@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/menuInsertPicture"
+        android:title="@string/menu_insert_picture"
+        android:icon="@drawable/ic_photo_camera_white_24dp"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/menuChooseColor"
+        android:title="@string/menu_create"
+        android:icon="@drawable/ic_widgets_white_24dp"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/menuDoneCreate"
+        android:title="@string/menu_create"
+        android:icon="@drawable/ic_done_white_24dp"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/menuNewNode"
+        android:title="@string/menu_new_note"
+        app:showAsAction="never" />
+</menu>

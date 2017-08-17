@@ -17,8 +17,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.createnote.CreateNoteActivity" />
-        <activity android:name=".ui.editnote.EditNoteActivity"></activity>
+        <activity android:name=".ui.createeditnote.CreateEditNoteActivity" />
 
         <receiver android:name=".service.AlarmReceiver"/>
     </application>

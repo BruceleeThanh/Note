@@ -1,4 +1,4 @@
-package com.rikkeisoft.thanhnt.note.ui.createnote;
+package com.rikkeisoft.thanhnt.note.ui.createeditnote;
 
 import com.rikkeisoft.thanhnt.note.ui.BasePresenter;
 import com.rikkeisoft.thanhnt.note.ui.BaseView;
@@ -11,7 +11,7 @@ import java.util.List;
  * Created by ThanhNT on 8/15/2017.
  */
 
-public interface CreateNoteContract {
+public interface CreateEditNoteContract {
 
     interface View extends BaseView<Presenter> {
         void showChooseColorMenu();
@@ -60,6 +60,8 @@ public interface CreateNoteContract {
     }
 
     interface Presenter extends BasePresenter {
+        void start(int action);
+
         void saveNote(String title, String content);
 
         void setNoteColor(NoteColor noteColor);

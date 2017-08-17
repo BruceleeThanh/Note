@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 import com.rikkeisoft.thanhnt.note.R;
 import com.rikkeisoft.thanhnt.note.data.note.Note;
-import com.rikkeisoft.thanhnt.note.ui.createnote.CreateNoteActivity;
+import com.rikkeisoft.thanhnt.note.ui.createeditnote.CreateEditNoteActivity;
 
 import java.util.List;
 
@@ -62,7 +62,7 @@ public class NoteActivity extends AppCompatActivity implements NoteContract.View
 
     @Override
     public void showCreateNote() {
-        Intent intent = new Intent(getBaseContext(), CreateNoteActivity.class);
+        Intent intent = new Intent(getBaseContext(), CreateEditNoteActivity.class);
         startActivity(intent);
     }
 

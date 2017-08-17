@@ -21,7 +21,9 @@
             android:paddingLeft="@dimen/margin_small"
             android:text="Title"
             android:textColor="@color/primary_text"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:maxLines="1"
+            android:ellipsize="end"/>
 
         <ImageView
             android:id="@+id/ivIconAlarm"

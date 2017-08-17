@@ -5,6 +5,7 @@
     <string name="title_alarm">Alarm</string>
     <string name="menu_create_note">Create note</string>
     <string name="menu_create">Create</string>
+    <string name="menu_new_note">New Note</string>
     <string name="menu_choose_color">Choose color</string>
     <string name="menu_insert_picture">Insert picture</string>
     <string name="empty_note_error">Note cannot be empty</string>

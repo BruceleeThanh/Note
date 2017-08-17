@@ -1,4 +1,4 @@
-package com.rikkeisoft.thanhnt.note.ui.createnote;
+package com.rikkeisoft.thanhnt.note.ui.createeditnote;
 
 import com.rikkeisoft.thanhnt.note.data.note.Note;
 import com.rikkeisoft.thanhnt.note.data.note.NoteColor;
@@ -14,7 +14,7 @@ import java.util.List;
  * Created by ThanhNT on 8/15/2017.
  */
 
-public class CreateNotePresenter implements CreateNoteContract.Presenter {
+public class CreateEditNotePresenter implements CreateEditNoteContract.Presenter {
 
     private final String OTHER = "Other...";
     private final String TODAY = "Today";
@@ -26,7 +26,7 @@ public class CreateNotePresenter implements CreateNoteContract.Presenter {
     private final String TWENTY = "20:00";
 
 
-    private final CreateNoteContract.View view;
+    private final CreateEditNoteContract.View view;
     private NoteRepository noteRepository;
     private NoteColor noteColor = NoteColor.WHITE;
     private Date currentDate;
@@ -38,7 +38,7 @@ public class CreateNotePresenter implements CreateNoteContract.Presenter {
     private int previousDateAlarmSelected = 0;
     private int previousTimeAlarmSelected = 0;
 
-    public CreateNotePresenter(CreateNoteContract.View view) {
+    public CreateEditNotePresenter(CreateEditNoteContract.View view) {
         this.view = view;
         noteRepository = new NoteRepository(Note.class);
     }
@@ -50,6 +50,11 @@ public class CreateNotePresenter implements CreateNoteContract.Presenter {
 
         setDateAlarm();
         setTimeAlarm();
+    }
+
+    @Override
+    public void start(int action) {
+
     }
 
     private void setDateAlarm() {
